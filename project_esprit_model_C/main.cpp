@@ -29,6 +29,8 @@ int main(){
 
     TestDoubleList();
     TestHashTable();
+    TestXFastTrie();
+    TestAVL();
 
     sf::RenderWindow window(sf::VideoMode(consoleConfiguration.WINDOW_X_SIZE, consoleConfiguration.WINDOW_Y_SIZE), "SFML window");
     std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;

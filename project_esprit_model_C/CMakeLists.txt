@@ -51,6 +51,10 @@ add_executable(project_esprit_model_C
         data_structures/XFastTrieBeta.h
         data_structures/XFastTrieBeta.cpp
         scripts/TestUnit.h
+        data_structures/AVL.h
+        data_structures/AVL.cpp
+        data_structures/YFastTrie.h
+        data_structures/YFastTrie.cpp
 )
 
     target_link_libraries(project_esprit_model_C sfml-graphics sfml-window sfml-system)

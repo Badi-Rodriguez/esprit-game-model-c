@@ -182,6 +182,20 @@ build CMakeFiles/project_esprit_model_C.dir/data_structures/XFastTrieBeta.cpp.ob
   OBJECT_DIR = CMakeFiles\project_esprit_model_C.dir
   OBJECT_FILE_DIR = CMakeFiles\project_esprit_model_C.dir\data_structures
 
+build CMakeFiles/project_esprit_model_C.dir/data_structures/AVL.cpp.obj: CXX_COMPILER__project_esprit_model_C_unscanned_Debug C$:/Users/Badir/Documents/projects/project_esprit_model_C/data_structures/AVL.cpp || cmake_object_order_depends_target_project_esprit_model_C
+  DEP_FILE = CMakeFiles\project_esprit_model_C.dir\data_structures\AVL.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Libraries/SFML-2.6.2/include
+  OBJECT_DIR = CMakeFiles\project_esprit_model_C.dir
+  OBJECT_FILE_DIR = CMakeFiles\project_esprit_model_C.dir\data_structures
+
+build CMakeFiles/project_esprit_model_C.dir/data_structures/YFastTrie.cpp.obj: CXX_COMPILER__project_esprit_model_C_unscanned_Debug C$:/Users/Badir/Documents/projects/project_esprit_model_C/data_structures/YFastTrie.cpp || cmake_object_order_depends_target_project_esprit_model_C
+  DEP_FILE = CMakeFiles\project_esprit_model_C.dir\data_structures\YFastTrie.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Libraries/SFML-2.6.2/include
+  OBJECT_DIR = CMakeFiles\project_esprit_model_C.dir
+  OBJECT_FILE_DIR = CMakeFiles\project_esprit_model_C.dir\data_structures
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project_esprit_model_C
@@ -190,7 +204,7 @@ build CMakeFiles/project_esprit_model_C.dir/data_structures/XFastTrieBeta.cpp.ob
 #############################################
 # Link the executable project_esprit_model_C.exe
 
-build project_esprit_model_C.exe: CXX_EXECUTABLE_LINKER__project_esprit_model_C_Debug CMakeFiles/project_esprit_model_C.dir/main.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Character.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Bar.cpp.obj CMakeFiles/project_esprit_model_C.dir/Testing/Testing.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/ForwardList.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/Node.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/PriorityQueue.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/BiNode.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/DoubleList.cpp.obj CMakeFiles/project_esprit_model_C.dir/Visuals/window.cpp.obj CMakeFiles/project_esprit_model_C.dir/core/Command.cpp.obj CMakeFiles/project_esprit_model_C.dir/core/commands/UniCommands.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Helper.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/HashTable.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/XFastTrie.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/BST.cpp.obj CMakeFiles/project_esprit_model_C.dir/core/Config/Config.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Item.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/XFastTrieBeta.cpp.obj | C$:/Libraries/SFML-2.6.2/lib/libsfml-graphics-d.a C$:/Libraries/SFML-2.6.2/lib/libsfml-window-d.a C$:/Libraries/SFML-2.6.2/lib/libsfml-system-d.a
+build project_esprit_model_C.exe: CXX_EXECUTABLE_LINKER__project_esprit_model_C_Debug CMakeFiles/project_esprit_model_C.dir/main.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Character.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Bar.cpp.obj CMakeFiles/project_esprit_model_C.dir/Testing/Testing.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/ForwardList.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/Node.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/PriorityQueue.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/BiNode.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/DoubleList.cpp.obj CMakeFiles/project_esprit_model_C.dir/Visuals/window.cpp.obj CMakeFiles/project_esprit_model_C.dir/core/Command.cpp.obj CMakeFiles/project_esprit_model_C.dir/core/commands/UniCommands.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Helper.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/HashTable.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/XFastTrie.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/BST.cpp.obj CMakeFiles/project_esprit_model_C.dir/core/Config/Config.cpp.obj CMakeFiles/project_esprit_model_C.dir/scripts/Item.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/XFastTrieBeta.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/AVL.cpp.obj CMakeFiles/project_esprit_model_C.dir/data_structures/YFastTrie.cpp.obj | C$:/Libraries/SFML-2.6.2/lib/libsfml-graphics-d.a C$:/Libraries/SFML-2.6.2/lib/libsfml-window-d.a C$:/Libraries/SFML-2.6.2/lib/libsfml-system-d.a
   FLAGS = -g
   LINK_LIBRARIES = C:/Libraries/SFML-2.6.2/lib/libsfml-graphics-d.a  C:/Libraries/SFML-2.6.2/lib/libsfml-window-d.a  C:/Libraries/SFML-2.6.2/lib/libsfml-system-d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project_esprit_model_C.dir
