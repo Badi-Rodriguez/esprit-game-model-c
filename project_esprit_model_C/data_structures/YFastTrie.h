@@ -36,7 +36,12 @@ private:
 public:
     YFastTrie() = default;
 
-    ~YFastTrie() = default; // Smart pointers clean up automatically
+    ~YFastTrie() = default; // Smart pointers clean up automatically\\
+
+    const std::unordered_map<Key, std::unique_ptr<AVL<Key, Value>>>& getClusterMap() const {
+        return clusterMap;
+    }
+
 
     void insert(Key key, Value value) {
         std::cout << "Inserting key: " << key << " with value: " << value << "\n";

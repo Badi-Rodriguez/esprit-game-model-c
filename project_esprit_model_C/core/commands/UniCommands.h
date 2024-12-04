@@ -175,5 +175,8 @@ public:
 
 };
 
+// --- TestYFastTrie ---
+
+
 #endif //PROJECT_ESPRIT_MODEL_C_UNICOMMANDS_H
 

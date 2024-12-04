@@ -20,14 +20,12 @@ constexpr size_t MAX_INPUT_BUFFER = 100;
 
 // System information
 
-constexpr std::string version = "0.0.4";
+constexpr std::string version = "0.1.2";
 int input_count = 0;
 int frame_count = 0;
 
 // Main loop
 int main(){
-
-    TestYFastTrie();
 
     sf::RenderWindow window(sf::VideoMode(consoleConfiguration.WINDOW_X_SIZE, consoleConfiguration.WINDOW_Y_SIZE), "SFML window");
     std::cout << "Current working directory: " << std::filesystem::current_path() << std::endl;

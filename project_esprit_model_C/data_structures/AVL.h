@@ -6,6 +6,7 @@
 #define PROJECT_ESPRIT_MODEL_C_AVL_H
 
 #include <iostream>
+#include <SFML/Graphics.hpp>
 #include <functional>
 
 template <typename Key, typename Value>
@@ -274,6 +275,55 @@ public:
 
     AVLNode* succ(Key key) {
         return succ(root, key);
+    }
+
+    void visualizeAVL(sf::RenderWindow &window, int x, int y, sf::Font consoleFont) const {
+        if (!root) return;
+
+        const int NODE_RADIUS = 15;
+        const int OFFSET_X = 50;
+        const int OFFSET_Y = 50;
+
+        std::function<void(AVLNode *, int, int)> drawNode = [&](AVLNode *node, int posX, int posY) {
+            if (!node) return;
+
+            // Draw current node
+            sf::CircleShape nodeShape(NODE_RADIUS);
+            nodeShape.setFillColor(sf::Color::Green);
+            nodeShape.setPosition(posX, posY);
+
+            sf::Text nodeLabel;
+            nodeLabel.setFont(consoleFont);
+            nodeLabel.setCharacterSize(14);
+            nodeLabel.setFillColor(sf::Color::Black);
+            nodeLabel.setString(std::to_string(node->key));
+            nodeLabel.setPosition(posX + 5, posY + 5);
+
+            window.draw(nodeShape);
+            window.draw(nodeLabel);
+
+            // Draw left child
+            if (node->left) {
+                sf::Vertex line[] = {
+                        sf::Vertex(sf::Vector2f(posX + NODE_RADIUS, posY + NODE_RADIUS)),
+                        sf::Vertex(sf::Vector2f(posX - OFFSET_X + NODE_RADIUS, posY + OFFSET_Y + NODE_RADIUS))
+                };
+                window.draw(line, 2, sf::Lines);
+                drawNode(node->left, posX - OFFSET_X, posY + OFFSET_Y);
+            }
+
+            // Draw right child
+            if (node->right) {
+                sf::Vertex line[] = {
+                        sf::Vertex(sf::Vector2f(posX + NODE_RADIUS, posY + NODE_RADIUS)),
+                        sf::Vertex(sf::Vector2f(posX + OFFSET_X + NODE_RADIUS, posY + OFFSET_Y + NODE_RADIUS))
+                };
+                window.draw(line, 2, sf::Lines);
+                drawNode(node->right, posX + OFFSET_X, posY + OFFSET_Y);
+            }
+        };
+
+        drawNode(root, x, y);
     }
 
 };
