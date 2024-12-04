@@ -1,0 +1,12 @@
+Axe of Regock,500,700,weapon|axe|rare,Vendor_123,101,Available
+Shield of Valor,300,500,armor|shield|common,Vendor_456,102,Unavailable
+Flame Sword,1200,1500,weapon|sword|fire,Vendor_789,103,Available
+Bow of Eternity,800,1000,weapon|bow|legendary,Vendor_123,104,Reserved
+Healing Potion,50,70,potion|healing|rare,Vendor_001,105,Available
+Dragon Scale Armor,1500,1800,armor|dragon|epic,Vendor_654,106,Unavailable
+Dagger of Shadows,600,800,weapon|dagger|stealth,Vendor_999,107,Available
+Elixir of Strength,200,250,potion|strength|common,Vendor_789,108,Reserved
+Crystal Shield,900,1100,armor|shield|rare,Vendor_321,109,Unavailable
+Wand of Wisdom,1100,1300,weapon|wand|magic,Vendor_555,110,Available
+Mystic Ring,400,600,accessory|ring|magic,Vendor_333,111,Available
+Cloak of Invisibility,1200,1400,armor|cloak|stealth,Vendor_777,112,Unavailable
