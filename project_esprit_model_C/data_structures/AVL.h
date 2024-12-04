@@ -119,34 +119,51 @@ private:
     // Complexity: O(log n)
 
     AVLNode* remove(AVLNode* node, Key key) {
-        if (!node) return nullptr;
+        if (!node) return nullptr; // Base case: Key not found
 
         if (key < node->key) {
             node->left = remove(node->left, key);
         } else if (key > node->key) {
             node->right = remove(node->right, key);
         } else {
+            // Node to be deleted found
             AVLNode* left = node->left;
             AVLNode* right = node->right;
-            delete node;
+            delete node; // Free memory
 
+            // Case 1: No right child, return left subtree
             if (!right) return left;
 
+            // Case 2: Find the minimum in the right subtree
             AVLNode* min = findMin(right);
-            min->right = removeMin(right);
+
+            // Reassign pointers
+            min->right = removeMin(right); // Remove the minimum node
             min->left = left;
 
+            // Return balanced subtree
             return balance(min);
         }
 
-        return balance(node);
+        return balance(node); // Balance the current node
     }
-    // Complexity: O(log n)
+
+    void displayHelper(AVLNode* node, int depth) const {
+        if (!node) return;
+
+        // Right subtree
+        displayHelper(node->right, depth + 1);
+
+        // Current node
+        std::cout << std::string(depth * 4, ' ') << node->key << ": " << node->value << " (Height: " << node->height << ")\n";
+
+        // Left subtree
+        displayHelper(node->left, depth + 1);
+    }
 
 public:
     AVL() : root(nullptr) {}
     ~AVL() {
-        // Recursive deletion of nodes
         std::function<void(AVLNode*)> deleteNodes = [&](AVLNode* node) {
             if (!node) return;
             deleteNodes(node->left);
@@ -155,6 +172,7 @@ public:
         };
         deleteNodes(root);
     }
+
 
     // Public interface
     void insert(Key key, Value value) {
@@ -238,6 +256,15 @@ public:
 
     bool isEmpty() const {
         return root == nullptr;
+    }
+
+    void display() const {
+        if (!root) {
+            std::cout << "AVL Tree is empty.\n";
+            return;
+        }
+        std::cout << "AVL Tree Contents:\n";
+        displayHelper(root, 0);
     }
 
 // Wrappers for `pred` and `succ`

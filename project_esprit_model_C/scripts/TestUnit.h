@@ -11,6 +11,7 @@
 #include "../data_structures/XFastTrie.h"
 #include "../data_structures/AVL.h"
 #include "../data_structures/YFastTrie.h"
+#include "../data_structures/MockUpYFastTrie.h"
 #include "Item.h"
 
 // Test function
@@ -252,77 +253,73 @@ void TestYFastTrie() {
 
     std::cout << "Inserted elements into YFastTrie.\n";
 
-    // Test 2: Search for keys
-    auto value = yFastTrie.search(10);
-    if (value) {
-        std::cout << "Search key 10: Found, Value = " << *value << "\n";
-    } else {
-        std::cout << "Search key 10: Not Found\n";
+    // Test 2: Edge cases
+    std::cout << "Test 2: Edge cases\n";
+    auto value = yFastTrie.search(1);  // Search for non-existent key
+    if (!value) {
+        std::cout << "Empty Trie - Search key 1: Not Found\n";
     }
 
-    value = yFastTrie.search(20);
-    if (value) {
-        std::cout << "Search key 20: Found, Value = " << *value << "\n";
-    } else {
-        std::cout << "Search key 20: Not Found\n";
+    auto pred = yFastTrie.predecessor(1);  // Predecessor for a key smaller than all others
+    if (!pred.first) {
+        std::cout << "Empty Trie - Predecessor of key 1: Not Found\n";
     }
 
-    // Test 3: Predecessor queries
-    auto pred = yFastTrie.predecessor(12);
-    if (pred.first) {
-        std::cout << "Predecessor of 12: Key = " << pred.first << ", Value = " << pred.second << "\n";
-    } else {
-        std::cout << "Predecessor of 12: Not Found\n";
+    auto succ = yFastTrie.successor(1);  // Successor for a key smaller than all others
+    if (!succ.first) {
+        std::cout << "Empty Trie - Successor of key 1: Not Found\n";
     }
 
-    pred = yFastTrie.predecessor(5);
-    if (pred.first) {
-        std::cout << "Predecessor of 5: Key = " << pred.first << ", Value = " << pred.second << "\n";
-    } else {
-        std::cout << "Predecessor of 5: Not Found\n";
-    }
+    // Test 3: Boundary values
+    yFastTrie.insert(0, "Zero");
 
-    // Test 4: Successor queries
-    auto succ = yFastTrie.successor(7);
+    std::cout << "Inserted boundary values into YFastTrie.\n";
+
+    succ = yFastTrie.successor(0);
     if (succ.first) {
-        std::cout << "Successor of 7: Key = " << succ.first << ", Value = " << succ.second << "\n";
-    } else {
-        std::cout << "Successor of 7: Not Found\n";
+        std::cout << "Successor of 0: Key = " << succ.first << ", Value = " << succ.second << "\n";
     }
 
-    succ = yFastTrie.successor(15);
-    if (succ.first) {
-        std::cout << "Successor of 15: Key = " << succ.first << ", Value = " << succ.second << "\n";
-    } else {
-        std::cout << "Successor of 15: Not Found\n";
-    }
-
-    // Test 5: Remove elements
-    yFastTrie.remove(7);
-    std::cout << "Removed key 7.\n";
-
-    value = yFastTrie.search(7);
+    // Test 4: Duplicate insertion
+    yFastTrie.insert(10, "Updated Ten");
+    value = yFastTrie.search(10);
     if (value) {
-        std::cout << "Search key 7 after removal: Found, Value = " << *value << "\n";
-    } else {
-        std::cout << "Search key 7 after removal: Not Found\n";
+        std::cout << "Search key 10 after duplicate insert: Found, Value = " << *value << "\n";
     }
 
-    pred = yFastTrie.predecessor(12);
-    if (pred.first) {
-        std::cout << "Predecessor of 12 after removing 7: Key = " << pred.first << ", Value = " << pred.second << "\n";
-    } else {
-        std::cout << "Predecessor of 12 after removing 7: Not Found\n";
+    // Test 5: Removal edge cases
+    yFastTrie.remove(0);  // Remove minimum
+    yFastTrie.remove(1000000);  // Remove maximum
+    std::cout << "Removed boundary values (0 and 1000000).\n";
+
+    value = yFastTrie.search(0);
+    if (!value) {
+        std::cout << "Search key 0 after removal: Not Found\n";
     }
 
-    succ = yFastTrie.successor(12);
-    if (succ.first) {
-        std::cout << "Successor of 12 after removing 7: Key = " << succ.first << ", Value = " << succ.second << "\n";
-    } else {
-        std::cout << "Successor of 12 after removing 7: Not Found\n";
+    value = yFastTrie.search(1000000);
+    if (!value) {
+        std::cout << "Search key 1000000 after removal: Not Found\n";
     }
+
+    std::cout << "Displaying contents of YFastTrie:\n";
+    yFastTrie.display();
 
     std::cout << "YFastTrie test completed.\n";
 }
+
+void TestMockYFastTrie() {
+    MockYFastTrie<int, std::string> mockYFastTrie;
+
+    mockYFastTrie.insert(10, "Ten");
+    mockYFastTrie.insert(5, "Five");
+    mockYFastTrie.insert(15, "Fifteen");
+    mockYFastTrie.insert(7, "Seven");
+    mockYFastTrie.insert(12, "Twelve");
+
+    std::cout << "Inserted elements into Mock Y-Fast Trie.\n";
+    mockYFastTrie.display();
+}
+
 
 #endif //PROJECT_ESPRIT_MODEL_C_TESTUNIT_H

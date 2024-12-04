@@ -45,7 +45,6 @@ private:
 public:
     XFastTrie() : root(new Node()), levelHashTables(BITS) {}
     ~XFastTrie() {
-        // Recursive deletion logic for nodes
         std::function<void(Node*)> deleteNodes = [&](Node* node) {
             if (!node) return;
             deleteNodes(node->left);
@@ -55,6 +54,7 @@ public:
         };
         deleteNodes(root);
     }
+
 
 
     void insert(Key key, const Value &value);
